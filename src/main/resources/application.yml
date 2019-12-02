@@ -1,0 +1,19 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.105.192.158:3306/wangyi?useUnicode=true&characterEncoding=utf8
+    #url: jdbc:mysql://localhost:3306/wangyi?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 1000phone
+
+  jpa:
+    database: mysql
+    show-sql: true
+    generate-ddl: true
+    hibernate.ddl-auto: update
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: top.top7.pojo
