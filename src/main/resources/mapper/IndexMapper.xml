@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.top7.dao.IndexDao">
+
+    <resultMap id="indexResultMap1" type="home1">
+        <result column="home1_name" property="home1_name"></result>
+        <collection property="classes" ofType="classes">
+            <id column="id" property="id"></id>
+            <result column="class1_name" property="class1_name"></result>
+            <result column="class1_img" property="class1_img"></result>
+            <result column="class1_info" property="class1_info"></result>
+        </collection>
+    </resultMap>
+
+    <resultMap id="indexResultMap2" type="class_sort1">
+        <result column="class_sort1_name" property="class_sort1_name"></result>
+        <collection property="class_sort2" ofType="class_sort2">
+            <id column="id" property="id"></id>
+            <result column="class_sort2_name" property="class_sort2_name"></result>
+        </collection>
+    </resultMap>
+
+    <resultMap id="indexResultMap3" type="classes">
+        <id column="id" property="id"></id>
+        <result column="class1_name" property="class1_name"></result>
+        <result column="class1_img" property="class1_img"></result>
+    </resultMap>
+    <resultMap id="indexResultMap4" type="lunbo">
+        <result column="lunbo_img" property="lunbo_img"></result>
+    </resultMap>
+
+    <resultMap id="indexResultMap5" type="classes2">
+        <id column="id" property="id"></id>
+        <result column="class2_name" property="class2_name"></result>
+        <result column="class2_info" property="class2_info"></result>
+        <result column="index_img" property="index_img"></result>
+    </resultMap>
+
+
+    <select id="findIndexSort" resultMap="indexResultMap2">
+        select c1.class_sort1_name,c2.class_sort2_name from class_sort1 c1,class_sort2 c2,1_2 m where m.1_id=c1.class_sort1_id and m.2_id=c2.class_sort2_id
+    </select>
+
+    <select id="findIndexClass" resultMap="indexResultMap1">
+        select h.home1_name,c.id,c.class1_name,c.class1_img,c.class1_info from home1 h,classes c,home1_class hc where hc.home1_id=h.id and hc.classes_id=c.id
+    </select>
+
+    <select id="searchMess" resultMap="indexResultMap3" parameterType="string">
+        select c.id,c.class1_name,c.class1_img from classes c where c.class1_name like #{name}
+    </select>
+    <select id="indexLunbo" resultMap="indexResultMap4">
+        select lunbo_img from lunbotu
+    </select>
+
+    <select id="selectClasses2" resultMap="indexResultMap5">
+        select id,class2_name,class2_info,index_img from classes2
+    </select>
+</mapper>

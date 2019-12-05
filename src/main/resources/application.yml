@@ -14,6 +14,21 @@ spring:
     show-sql: true
     generate-ddl: true
     hibernate.ddl-auto: update
+
+    #邮箱配置
+  mail:
+    host: smtp.qq.com
+    username: 1035760443@qq.com
+    #QQ邮箱的授权码
+    password: rteqplayqfmzbddj
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: top.top7.pojo

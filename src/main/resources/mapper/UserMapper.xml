@@ -11,8 +11,8 @@
         <result column="user_email" property="userEmail"></result>
     </resultMap>
 
-
     <select id="findAll" resultMap="ResultMap">
         select * from user
     </select>
+
 </mapper>
