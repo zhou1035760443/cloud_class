@@ -11,8 +11,20 @@
         <result column="user_email" property="userEmail"></result>
     </resultMap>
 
-    <select id="findAll" resultMap="ResultMap">
-        select * from user
+
+    <!--用户手机登录-->
+    <select id="login" resultMap="ResultMap" parameterType="user">
+        SELECT * FROM user WHERE user_tel=#{userTel} AND password=#{password}
+    </select>
+
+    <!--用户注册-->
+    <insert id="register" parameterType="user">
+        INSERT INTO user (user_name,password,user_tel,status,user_email,salt) VALUES (#{userName},#{password},#{userTel},#{status},#{userEmail},#{salt})
+    </insert>
+
+    <!--根据名字或电话查询用户-->
+    <select id="findUserByNameOrTel" resultMap="ResultMap">
+        SELECT * from user where user_tel=#{userTel} or user_name=#{userName}
     </select>
 
 </mapper>

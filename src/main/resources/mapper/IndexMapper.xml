@@ -54,6 +54,6 @@
     </select>
 
     <select id="selectClasses2" resultMap="indexResultMap5">
-        select id,class2_name,class2_info,index_img from classes2
+        select id,class2_name,class2_info,index_img from classes2 limit 0,4
     </select>
 </mapper>

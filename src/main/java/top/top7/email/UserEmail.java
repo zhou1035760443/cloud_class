@@ -1,5 +1,5 @@
 package top.top7.email;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Random;
 
-/**
+*//**
  * Created by Administrator on 2019/12/5.
- */
-@Component
+ *//*
+@Component*/
 public class UserEmail {
 
-    @Autowired
+   /* @Autowired
      JavaMailSender mailSender;
     @Value("${spring.mail.username}")
     private String MAIL_SENDER;
@@ -49,5 +49,5 @@ public class UserEmail {
         simpleMailMessage.setText("您的登录验证码是："+random+"该验证码在3分钟内有效！");
 
         mailSender.send(simpleMailMessage);
-    }
+    }*/
 }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.top7.pojo.*;
 import top.top7.service.IndexService;
+import top.top7.utils.Msg;
 
 import java.util.List;
 
@@ -39,5 +40,19 @@ public class indexController {
     @RequestMapping("/selectClasses2")
     public List<Classes2> selectClasses2(){
         return indexService.selectClasses2();
+    }
+
+    @RequestMapping("/findAllClasses/{size}/{page}")
+    public Msg findAllClasses(@PathVariable("size")Integer size, @PathVariable("page")Integer page){
+        return indexService.findAllClasses(size,page);
+    }
+    @RequestMapping("/deleteClasses/{id}")
+    public void deleteClasses(@PathVariable("id")Integer id){
+        indexService.deleteClasses(id);
+    }
+
+    @RequestMapping("getClassById/{id}")
+    public Classes getClassById(@PathVariable("id")Integer id){
+        return indexService.getClassById(id);
     }
 }

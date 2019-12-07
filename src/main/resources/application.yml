@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.105.192.158:3306/wangyi?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://47.105.192.158:3306/wangyi?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
     #url: jdbc:mysql://localhost:3306/wangyi?useUnicode=true&characterEncoding=utf8
     username: root
     password: 1000phone
@@ -16,19 +16,25 @@ spring:
     hibernate.ddl-auto: update
 
     #邮箱配置
-  mail:
-    host: smtp.qq.com
-    username: 1035760443@qq.com
+ # mail:
+    #host: smtp.qq.com
+    #username: 1035760443@qq.com
     #QQ邮箱的授权码
-    password: rteqplayqfmzbddj
-    default-encoding: UTF-8
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-            required: true
+    #password: rteqplayqfmzbddj
+    #default-encoding: UTF-8
+    #properties:
+      #mail:
+        #smtp:
+          #auth: true
+          #starttls:
+            #enable: true
+            #required: true
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: top.top7.pojo
+
+aliyun:
+  accessKeyId: LTAI4FtQU55SsmsaUnXX3uKZ
+  accessSecret: cXB2Jk7oECR0Go0qRk21OEv57RxBul
+  RegionId: cn-hangzhou
+  SignName: 网易云课堂
