@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.top7.dao.RolerDao">
+    <resultMap id="RestRole" type="roler">
+        <id column="id" property="id"></id>
+        <result column="role_name" property="roleName"></result>
+    </resultMap>
+
+<select id="findRoleByTel" parameterType="string" resultMap="RestRole">
+    SELECT u.user_tel,r.role_name FROM USER u,user_roler ur,roler r WHERE
+     u.id=ur.user_id
+     AND ur.roler_id=r.id
+     AND  u.user_tel=#{userTel}
+</select>
+
+
+</mapper>
